@@ -15,6 +15,14 @@ app.use(
 app.use(express.json());
 
 // Routes
+app.get('/api/health', (req, res) => {
+  res.json({
+    status: 'ok',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development'
+  });
+});
+
 app.use('/chat', chatRouter);
 
 // Error handling
