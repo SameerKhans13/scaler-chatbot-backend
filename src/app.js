@@ -9,7 +9,9 @@ const app = express();
 app.use(
   cors({
     origin: process.env.ALLOWED_ORIGIN || '*',
-    methods: ['GET', 'POST'],
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
   })
 );
 app.use(express.json());
